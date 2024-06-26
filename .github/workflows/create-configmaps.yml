@@ -6,10 +6,9 @@ on:
       - main
 
 jobs:
-  job-name:
+  build:
     permissions:
       contents: write
-  build:
     runs-on: ubuntu-latest
 
     steps:
