@@ -19,7 +19,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Run script to create ConfigMaps
-        run: bash create-configmaps.sh $GITHUB_WORKSPACE
+        run: bash create-configmap-jpmc.sh $GITHUB_WORKSPACE
 
       - name: Commit changes
         run: |
