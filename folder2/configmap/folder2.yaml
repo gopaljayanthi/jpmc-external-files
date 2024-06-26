@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: folder2
+data:
+  app.properties: |
+    property1=benda
+    property2=beera
+    foler2-property=tenkaya
+  something.txt: |
+    something
+    another thing
+    yet another one
