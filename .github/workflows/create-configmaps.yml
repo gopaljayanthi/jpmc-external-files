@@ -1,0 +1,31 @@
+name: Create ConfigMaps
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run script to create ConfigMaps
+        run: bash create-configmaps.sh $GITHUB_WORKSPACE
+
+      - name: Commit changes
+        run: |
+          git checkout -b readyforargo
+          git add .
+          git commit -m "Create ConfigMap YAML files"
+          git push --force --set-upstream origin readyforargo
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
